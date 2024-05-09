@@ -20,7 +20,7 @@ const wins = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
-];
+];  
 
 let $ = (selector) => {
     return document.querySelector(selector)
@@ -71,6 +71,7 @@ let cleanPlayfield = () => {
     for(everyCell of cells) {
         everyCell.innerText = '';
         everyCell.removeAttribute('disabled');
+        everyCell.style.transform = 'rotateX(0deg)';
     }
     winner = null;
     moves = 0;
@@ -94,7 +95,7 @@ $('.welcome_button').addEventListener('click', () => {
         slideElem('welcome_button', false);
         setTimeout(() => {
             $('.welcome_background').style.opacity = '0';
-            $('.player_heading').innerHTML = `Have a nice play! It's <span style="color: ${playerColor(player)}">${playerName(player)}'s</span> turn`;
+            $('.player_heading').innerHTML = `Have a nice game! It's <span style="color: ${playerColor(player)}">${playerName(player)}'s</span> turn`;
             for (let i = 0; i < cells.length; i++) {
                 setInterval(() => {
                     cells[i].classList.add('slide_in');
@@ -113,6 +114,7 @@ for (let i = 0; i < cells.length; i++) {
         e.target.innerText = playerName(player);
         e.target.style.color = playerColor(player);
         e.target.setAttribute('disabled', 'true');
+        e.target.style.transform = 'rotateX(180deg)';
         moves++;
         if (player) {
             playsX.push(+e.target.getAttribute('data-cell_number'));
