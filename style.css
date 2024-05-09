@@ -1,0 +1,79 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+body {
+    overflow: hidden;
+}
+.welcome_background {
+    transition: 1s;
+}
+.welcome_heading {
+    transform: translateX(100vw);
+    transition: .5s;
+}
+.welcome_button {
+    transform: translateX(-100vw);
+    transition: .5s;
+}
+.playfield_cell {
+    transition: opacity .2s, 1s transform;
+    font-size: 30px;
+    font-weight: bold;
+}
+.playfield_cell:active {
+    opacity: 20%;
+}
+.cell-0 {
+    transform: translateY(-100vw) translateX(-100vw);
+}
+.cell-1 {
+    transform: translateY(-100vw);
+}
+.cell-2 {
+    transform: translateY(-100vw) translateX(100vw);
+}
+.cell-3 {
+    transform: translateX(-100vw);
+}
+.cell-4 {
+    opacity: 0;
+    transform: rotateZ(-360deg);
+}
+.cell-5 {
+    transform: translateX(100vw);
+}
+.cell-6 {
+    transform: translateY(100vw) translateX(-100vw);
+}
+.cell-7 {
+    transform: translateY(100vw);
+}
+.cell-8 {
+    transform: translateX(100vw) translateY(100vw);
+}
+.player_heading {
+    transition: .2s;
+}
+.restart_button {
+    transform: translateX(-100vw);
+    transition: 1s;
+}
+.go_to_menu_button {
+    transform: translateX(100vw);
+    transition: 1s;
+}
+
+
+
+
+
+
+
+
+
+
+.slide_in {
+    transform: translateX(0) translateY(0) rotateZ(0deg);
+    opacity: 100%;
+}
+

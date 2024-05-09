@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="welcome_background w-screen h-screen flex flex-wrap bg-slate-300 content-center absolute z-50">
+        <div class="w-full flex justify-center">
+            <h1 class="welcome_heading text-4xl font-bold text-black">
+                Welcome to the <span style="color: rgb(255, 213, 0)">Tic</span><span style="color: rgb(89, 6, 89)">Tac</span><span style="color: rgb(255, 213, 0)"    >Toe</span>
+            </h1>
+        </div>
+        <div class="w-full flex justify-center mt-5">
+            <button class="welcome_button text-black hover:text-gray-600 duration active:text-gray-400 underline">
+                Start to play
+            </button>
+        </div>
+    </div>
+
+    <div class="w-screen h-screen bg-slate-300 flex flex-wrap content-center">
+        <div class="w-full flex justify-center">
+            <h2 class="player_heading text-4xl text-center">
+                
+            </h2>
+        </div>
+        <div class="w-full flex justify-center mt-5">
+            <div class="play_field flex flex-wrap  justify-between content-between w-72 h-72">
+                <button class="playfield_cell cell-0 w-20 h-20 text-white bg-white rounded-md" data-cell_number="0">
+
+                </button>   
+                <button class="playfield_cell cell-1 w-20 h-20 text-white bg-white rounded-md" data-cell_number="1">
+
+                </button>  
+                <button class="playfield_cell cell-2 w-20 h-20 text-white bg-white rounded-md" data-cell_number="2">
+
+                </button>  
+                <button class="playfield_cell cell-3 w-20 h-20 text-white bg-white rounded-md" data-cell_number="3">
+
+                </button>  
+                <button class="playfield_cell cell-4 w-20 h-20 text-white bg-white rounded-md" data-cell_number="4">
+
+                </button>  
+                <button class="playfield_cell cell-5 w-20 h-20 text-white bg-white rounded-md" data-cell_number="5">
+
+                </button>  
+                <button class="playfield_cell cell-6 w-20 h-20 text-white bg-white rounded-md" data-cell_number="6">
+
+                </button>  
+                <button class="playfield_cell cell-7 w-20 h-20 text-white bg-white rounded-md" data-cell_number="7">
+
+                </button>  
+                <button class="playfield_cell cell-8 w-20 h-20 text-white bg-white rounded-md" data-cell_number="8">
+
+                </button>  
+            </div>
+        </div>
+        <div class="w-full flex justify-center gap-5 mt-5">
+            <button class="restart_button text-white bg-green-600 py-2 px-4 rounded-md">Restart</button>
+            <button class="go_to_menu_button text-red-500">Go to menu</button>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
