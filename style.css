@@ -1,9 +1,9 @@
 * {
     font-family: "Poppins", sans-serif;
 }
-body {
-    overflow: hidden;
-}
+body, html {
+    overflow-x: hidden;
+    }
 .welcome_background {
     transition: 1s;
 }
