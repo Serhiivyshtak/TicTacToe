@@ -5,7 +5,7 @@ body, html {
     overflow-x: hidden;
     }
 .welcome_background {
-    transition: 1s;
+    transition: .3s;
 }
 .welcome_heading {
     transform: translateX(100vw);

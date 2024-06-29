@@ -1,5 +1,6 @@
 // true = 'X'
 // false = 'Y'
+import {$, delay} from './helpers.js';
 
 const cells = document.querySelectorAll('.playfield_cell');
 let player = null;
@@ -22,53 +23,34 @@ const wins = [
     [2, 4, 6]
 ];  
 
-let $ = (selector) => {
-    return document.querySelector(selector)
-}
-
 let slideElem = (className, direction) => {
-    if (direction) {
-        $(`.${className}`).classList.add('slide_in');
-    } else {
-        $(`.${className}`).classList.remove('slide_in');
-    }
+    direction ? $(`.${className}`).classList.add('slide_in') : $(`.${className}`).classList.remove('slide_in');
 }
 
 let playerName = (boolean) => {
-    if (boolean) {
-        return 'X';
-    } else {
-        return 'O';
-    }
+    return boolean ? 'X' : 'O';
 }
 
 let playerColor = (boolean) => {
-    if (boolean) {
-        return "rgb(255, 213, 0)";
-    } else {
-        return "rgb(89, 6, 89)";
-    }
+    return boolean ? 'rgb(255, 213, 0)' : 'rgb(89, 6, 89)';
 }
 
-let changeHeading = (string) => {
+let changeHeading = async (string) => {
     $('.player_heading').style.opacity = '0%';
-    setTimeout(() => {
-        $('.player_heading').innerHTML = string;
-        setTimeout(() => {
-            $('.player_heading').style.opacity = '100%';
-        }, 250)
-    }, 250)
+    await delay(250);
+    $('.player_heading').innerHTML = string;
+    await delay(250);
+    $('.player_heading').style.opacity = '100%';
 }
 
-let slideButtons = () => {
+let slideButtons = async () => {
     slideElem('restart_button', true);
-    setTimeout(() => {
-        slideElem('go_to_menu_button', true);
-    }, 300);
+    await delay (300);
+    slideElem('go_to_menu_button', true);
 }
 
 let cleanPlayfield = () => {
-    for(everyCell of cells) {
+    for(let everyCell of cells) {
         everyCell.innerText = '';
         everyCell.removeAttribute('disabled');
         everyCell.style.transform = 'rotateX(0deg)';
@@ -81,31 +63,25 @@ let cleanPlayfield = () => {
     slideElem('go_to_menu_button', false);
 }
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
     slideElem('welcome_heading', true);
-    setTimeout(() => {
-        slideElem('welcome_button', true);
-    }, 300)
+    await delay(300);
+    slideElem('welcome_button', true);
 });
 
-$('.welcome_button').addEventListener('click', () => {
+$('.welcome_button').addEventListener('click', async () => {
     player = Boolean(Math.round(Math.random()));
     slideElem('welcome_heading', false);
-    setTimeout(() => {
-        slideElem('welcome_button', false);
-        setTimeout(() => {
-            $('.welcome_background').style.opacity = '0';
-            $('.player_heading').innerHTML = `Have a nice game! It's <span style="color: ${playerColor(player)}">${playerName(player)}'s</span> turn`;
-            for (let i = 0; i < cells.length; i++) {
-                setInterval(() => {
-                    cells[i].classList.add('slide_in');
-                }, 100);
-            }
-            setTimeout(() => {
-                $('.welcome_background').style.display = 'none';
-            }, 1010)
-        }, 300)
-    }, 300)
+    await delay(300);
+    slideElem('welcome_button', false);
+    await delay(300);
+    $('.welcome_background').style.opacity = '0';
+    $('.player_heading').innerHTML = `Have a nice game! It's <span style="color: ${playerColor(player)}">${playerName(player)}'s</span> turn`;
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].classList.add('slide_in');
+    }
+    await delay(1010);
+    $('.welcome_background').style.display = 'none';
 });
 
 
@@ -145,7 +121,7 @@ for (let i = 0; i < cells.length; i++) {
             }
         } else {
             changeHeading(`Player <span style="color: ${playerColor(player)}">${winner}</span> has won! Congratulations!`);
-            for (everyCell of cells) {
+            for (let everyCell of cells) {
                 everyCell.setAttribute('disabled', 'true'); 
             }
             slideButtons();
@@ -153,15 +129,14 @@ for (let i = 0; i < cells.length; i++) {
     });
 }
 
-$('.go_to_menu_button').addEventListener('click', () => {
+$('.go_to_menu_button').addEventListener('click', async () => {
     $('.welcome_background').style.display = 'flex';
+    await delay(300);
     $('.welcome_background').style.opacity = '100%';
-    setTimeout(() => {
-        slideElem('welcome_heading', true);
-        setTimeout(() => {
-            slideElem('welcome_button', true);
-        }, 300)
-    }, 800);
+    await delay(800);
+    slideElem('welcome_heading', true);
+    await delay(300);
+    slideElem('welcome_button', true);
     cleanPlayfield();
 });
 
